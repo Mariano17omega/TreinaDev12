@@ -1,0 +1,23 @@
+<h1>Listagem de Filmes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Ano de Lançamento</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= link_to movie.title, movie_path(movie) %></td>
+        <td><%= movie.release_year %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Novo Filme', new_movie_path %>
+<%= link_to 'Home', root_path, class: 'btn btn-primary' %>
+

@@ -1,0 +1,31 @@
+<h1>Listagem de Diretores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Nacionalidade</th>
+      <th>Data de Nascimento</th>
+      <th>Gênero Favorito</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @directors.each do |director| %>
+      <tr>
+        <td><%= director.name %></td>
+        <td><%= director.nationality %></td>
+        <td><%= director.birthdate %></td>
+        <td><%= director.favorite_genre %></td>
+        <td>
+          <%= link_to 'Editar', edit_director_path(director) %> |
+          <%= link_to 'Deletar', director, method: :delete, data: { confirm: 'Tem certeza?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Novo Diretor', new_director_path %>
+<%= link_to 'Home', root_path, class: 'btn btn-primary' %>

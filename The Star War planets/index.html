@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planetas de Star Wars</title>
+</head>
+<body>
+    <div>
+        <h1>Explorador de Planetas de Star Wars</h1>
+        <input type="text" id="search" placeholder="Buscar planeta">
+        <button onclick="searchPlanet()" id="searchButton">Buscar Planeta</button>
+        <div id="planetsContainer"></div>
+    </div>
+    <div>
+        <ul id="result"></ul>
+        <button id="nextPageButton" onclick="loadNextPage()">Próxima Página</button>
+        <button id="prevPageButton" onclick="loadPrevPage()">Página Anterior</button>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

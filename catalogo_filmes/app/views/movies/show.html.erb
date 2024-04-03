@@ -1,0 +1,12 @@
+<h1><%= @movie.title %></h1>
+
+<p>Ano de Lançamento: <%= @movie.release_year %></p>
+<p>Sinopse: <%= @movie.synopsis %></p>
+<p>País de Origem: <%= @movie.country %></p>
+<p>Duração: <%= @movie.duration %> minutos</p>
+<p>Diretor: <%= @movie.director.name %></p>
+<p>Gênero: <%= @movie.genre.name %></p>
+
+<%= link_to 'Editar', edit_movie_path(@movie) %> |
+<%= link_to 'Deletar', @movie, method: :delete, data: { confirm: 'Você tem certeza?' } %> |
+<%= link_to 'Voltar', movies_path %>

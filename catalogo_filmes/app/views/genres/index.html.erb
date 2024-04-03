@@ -1,0 +1,25 @@
+<h1>Listagem de Gêneros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @genres.each do |genre| %>
+      <tr>
+        <td><%= genre.name %></td>
+        <td>
+          <%= link_to 'Editar', edit_genre_path(genre) %> |
+          <%= link_to 'Deletar', genre, method: :delete, data: { confirm: 'Tem certeza?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Novo Gênero', new_genre_path %>
+<%= link_to 'Home', root_path, class: 'btn btn-primary' %>

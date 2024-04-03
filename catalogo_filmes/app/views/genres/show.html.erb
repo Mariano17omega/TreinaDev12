@@ -1,0 +1,17 @@
+<h1><%= @genre.name %></h1>
+
+<h2>Filmes deste Gênero</h2>
+<ul>
+  <% @genre.movies.each do |movie| %>
+    <li><%= movie.title %> - <%= movie.release_year %></li>
+  <% end %>
+</ul>
+
+<h2>Diretores que têm este gênero como favorito</h2>
+<ul>
+  <% @directors.each do |director| %>
+    <li><%= director.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Voltar', genres_path %>

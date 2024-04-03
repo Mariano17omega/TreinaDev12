@@ -1,0 +1,9 @@
+<h1>Filmes de <%= @director.name %></h1>
+
+<ul>
+  <% @director.movies.each do |movie| %>
+    <li><%= movie.title %> - <%= movie.release_year %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Voltar', directors_path %>

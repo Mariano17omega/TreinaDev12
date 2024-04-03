@@ -1,0 +1,35 @@
+<%= form_for(@director) do |f| %>
+    <% if @director.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@director.errors.count, "error") %> prohibited this director from being saved:</h2>
+  
+        <ul>
+        <% @director.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= f.label :name, "Nome" %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :nationality, "Nacionalidade" %><br>
+      <%= f.text_field :nationality %>
+    </div>
+    <div class="field">
+      <%= f.label :birthdate, "Data de Nascimento" %><br>
+      <%= f.text_field :birthdate, placeholder: 'AAAA-MM-DD' %>
+    </div>
+    <div class="field">
+      <%= f.label :favorite_genre, "Gênero Favorito" %><br>
+      <%= f.text_field :favorite_genre %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit "Salvar" %>
+    </div>
+  <% end %>
+  
