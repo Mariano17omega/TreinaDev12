@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-    before_action :set_movie, only: [:show, :edit, :update, :destroy]
+    before_action :set_movie, only: [:show, :edit, :update]
   
     # GET /movies
     def index
@@ -39,12 +39,7 @@ class MoviesController < ApplicationController
         render :edit
       end
     end
-  
-    # DELETE /movies/1
-    def destroy
-      @movie.destroy
-      redirect_to movies_path, notice: 'Filme foi deletado com sucesso.'
-    end
+
   
     private
       def set_movie

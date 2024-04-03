@@ -2,16 +2,17 @@
 
 <h2>Filmes deste Gênero</h2>
 <ul>
-  <% @genre.movies.each do |movie| %>
-    <li><%= movie.title %> - <%= movie.release_year %></li>
+  <% @movies.each do |movie| %>
+    <li><%= movie.title %></li>
   <% end %>
 </ul>
 
-<h2>Diretores que têm este gênero como favorito</h2>
+<h2>Diretores com Este Gênero Favorito</h2>
 <ul>
   <% @directors.each do |director| %>
     <li><%= director.name %></li>
   <% end %>
 </ul>
 
-<%= link_to 'Voltar', genres_path %>
+<%= link_to 'Editar Gênero', edit_genre_path(@genre), class: 'btn' %>
+<%= link_to 'Voltar aos Gêneros', genres_path %>

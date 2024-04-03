@@ -1,5 +1,5 @@
 class DirectorsController < ApplicationController
-    before_action :set_director, only: [:show, :edit, :update, :destroy]
+    before_action :set_director, only: [:show, :edit, :update]
   
     # GET /directors
     def index
@@ -9,6 +9,7 @@ class DirectorsController < ApplicationController
     # GET /directors/1
     def show
       @director = Director.includes(:movies).find(params[:id])
+      @movies = @director.movies
     end
   
     # GET /directors/new
@@ -38,12 +39,6 @@ class DirectorsController < ApplicationController
       else
         render :edit
       end
-    end
-  
-    # DELETE /directors/1
-    def destroy
-      @director.destroy
-      redirect_to directors_path, notice: 'Diretor foi deletado com sucesso.'
     end
   
     private

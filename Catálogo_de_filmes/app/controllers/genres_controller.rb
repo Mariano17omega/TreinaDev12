@@ -1,5 +1,5 @@
 class GenresController < ApplicationController
-    before_action :set_genre, only: [:show, :edit, :update, :destroy]
+    before_action :set_genre, only: [:show, :edit, :update]
   
     # GET /genres
     def index
@@ -9,6 +9,7 @@ class GenresController < ApplicationController
     # GET /genres/1
     def show
       @genre = Genre.includes(:movies).find(params[:id])
+      @movies = @genre.movies
       @directors = Director.where(favorite_genre: @genre.name)    
     end
   
@@ -39,12 +40,6 @@ class GenresController < ApplicationController
       else
         render :edit
       end
-    end
-  
-    # DELETE /genres/1
-    def destroy
-      @genre.destroy
-      redirect_to generes_path, notice: 'Gênero foi deletado com sucesso.'
     end
   
     private
