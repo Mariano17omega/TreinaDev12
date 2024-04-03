@@ -3,7 +3,15 @@ class MoviesController < ApplicationController
   
     # GET /movies
     def index
-      @movies = Movie.all
+      #@movies = Movie.puplished
+      case params[:status_index]
+      when "0"
+        @movies = Movie.draft
+      when "1"
+        @movies = Movie.published
+      else
+        @movies = Movie.all
+      end
     end
   
     # GET /movies/1
@@ -47,7 +55,7 @@ class MoviesController < ApplicationController
       end
   
       def movie_params
-        params.require(:movie).permit(:title, :release_year, :synopsis, :country, :duration, :director_id, :genre_id)
+        params.require(:movie).permit(:title, :release_year, :synopsis, :country, :duration, :director_id, :genre_id, :status_index)
       end
   end
   

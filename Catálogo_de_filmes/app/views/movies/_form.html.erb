@@ -39,7 +39,12 @@
       <%= f.label :genre_id, "Gênero" %><br>
       <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: true %>
     </div>
-  
+    <%= f.radio_button :status, 'draft' %> <%= f.label :status, 'Não Lançado', value: 'draft' %><br>
+    <%= f.radio_button :status, 'published' %> <%= f.label :status, 'Lançado', value: 'published' %>
+ 
+      
+
+   
     <div class="actions">
       <%= f.submit "Salvar" %>
     </div>

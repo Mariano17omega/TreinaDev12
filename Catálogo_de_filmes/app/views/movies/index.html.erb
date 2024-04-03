@@ -1,22 +1,28 @@
+
 <h1>Filmes</h1>
+  <%= form_with(url: movies_path, method: :get, local: true) do |form| %>
+    <%= radio_button_tag :status_index, "", params[:status_index].blank?, onchange: "this.form.submit();" %> Todos
+    <%= radio_button_tag :status_index, "0", params[:status_index] == "0", onchange: "this.form.submit();" %> Não Lançados
+    <%= radio_button_tag :status_index, "1", params[:status_index] == "1", onchange: "this.form.submit();" %> Lançados
+  <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Título</th>
-      <th>Ano de Lançamento</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @movies.each do |movie| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to movie.title, movie_path(movie) %></td>
-        <td><%= movie.release_year %></td>
+        <th>Título</th>
+        <th>Ano de Lançamento</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= link_to movie.title, movie_path(movie) %></td>
+          <td><%= movie.release_year %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 <%= link_to 'Novo Filme', new_movie_path %>
 <%= link_to 'Home', root_path, class: 'btn btn-primary' %>
